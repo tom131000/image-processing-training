@@ -33,7 +33,10 @@ def ImageHist(image,type):
     return  histImg
 
 
-img = cv2.imread('D:/code/Single-Underwater-Image-Enhancement-and-Color-Restoration-master/Underwater Image Enhancement/OutputImages/CLAHE/B/B_001_CLAHE.jpg',1)
+img = cv2.imread("D:/code/Single-Underwater-Image-Enhancement-and-Color-Restoration-master"
+"/Realworld-Underwater-Image-Enhancement-RUIE-Benchmark/UIQS/B/B_001.jpg")
+# img = cv2.imread('D:/code/Single-Underwater-Image-Enhancement-and-Color-Restoration-master'
+#                 '/Underwater Image Enhancement/OutputImages/CLAHE/B/B_001_CLAHE.jpg')
 channels = cv2.split(img)#分解通道：RGB——>R，G，B
 for i in range(0,3):
     ImageHist(channels[i],31+i)

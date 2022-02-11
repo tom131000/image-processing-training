@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import os
+import logging
 
 # rawImg = np.fromfile('./raw/Image_520-4.raw', dtype=np.uint8)
 # img = cv2.imread("./raw/Image_520-5.jpg")
@@ -10,8 +11,10 @@ import os
 # if not os.path.exists(ouput_dir):
 #     os.makedirs(ouput_dir)
 # cv2.imwrite(ouput_dir + 'img_test.jpg', rawImg)
-
-
+print('yes')
+if not isinstance(logging.getLogger(), logging.Logger):
+    print('yes')
+print('yes')
 img1 = cv2.imread("0001.jpg")
 img2 = cv2.imread("0001_FM.jpg")
 

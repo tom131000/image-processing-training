@@ -11,7 +11,7 @@ def Pic2Video(img_path):
     if not os.path.exists(videoPath):
         os.makedirs(videoPath)
         print("folder creation completed")
-    video_name = "output002.mp4"
+    video_name = "UWCNN TypeII.mp4"
     images = os.listdir(imgPath)
     fps = 25  # 每秒25帧数
 
@@ -27,11 +27,10 @@ def Pic2Video(img_path):
         videoWriter.write(frame)
     print("图片转视频结束！")
     videoWriter.release()
-    cv2.destroyAllWindows()
 
 
 def Video2Pic():
-    videoPath = "D:/code/video/1.mp4"  # 读取视频路径
+    videoPath = "D:/code/video/3.mp4"  # 读取视频路径
     imgPath = "D:/code/video/picOutput3/"  # 保存图片路径
 
     if not os.path.exists(imgPath):
@@ -55,8 +54,8 @@ def Video2Pic():
     print("视频转图片结束！")
 
 def picCrop():
-    img1_path = "D:/code/video/picOutput2/"
-    img2_path = "D:/code/NRVQA/imgs/RayleighDistribution/"
+    img1_path = "D:/code/video/picOutput3/"
+    img2_path = "D:/code/UW/results/UWCNN/UWCNN_typeII/"
     output_path = 'output/'
     if not os.path.exists(output_path):
         os.makedirs(output_path)
@@ -79,11 +78,11 @@ def picCrop():
 
             # python里数组传递传递的是数组的引用
             # 对图像进行缩放操作，方便观察
-            img1_resize = cv2.resize(img1, None, fx=0.5, fy=0.5)
-            img2_resize = cv2.resize(img2, None, fx=0.5, fy=0.5)
+            #img1_resize = cv2.resize(img1, None, fx=0.5, fy=0.5)
+            #img2_resize = cv2.resize(img2, None, fx=0.5, fy=0.5)
             # 合并两张图像为一张
-            half = int(np.shape(img1_resize)[1] / 2)
-            diff = np.hstack((img1_resize[:, :half, :], img2_resize[:, half:, :]))
+            half = int(np.shape(img1)[1] / 2)
+            diff = np.hstack((img1[:, :half, :], img2[:, half:, :]))
             print(f'开始合并图像  {file1}与{file2}')
             cv2.imwrite(output_path + prefix + '.jpg', diff)
         Pic2Video(output_path)
@@ -92,6 +91,6 @@ def picCrop():
 
 
 if __name__ == '__main__':
-    Video2Pic()
-    #Pic2Video()
-    #picCrop()
+    #Video2Pic()
+    #Pic2Video("D:/code/")
+    picCrop()

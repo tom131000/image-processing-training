@@ -13,7 +13,7 @@ def calcGrayHist(I):
     return grayHist
 
 
-img = cv.imread("D:/code/Single-Underwater-Image-Enhancement-and-Color-Restoration-master/Underwater Image Enhancement/OutputImages/CLAHE/B/B_001_CLAHE.jpg")
+img = cv.imread("D:/code/NRVQA/imgs/CLAHE/0025_CLAHE.jpg", 1)
 img_temp = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 grayHist = calcGrayHist(img_temp)
 x = np.arange(256)
